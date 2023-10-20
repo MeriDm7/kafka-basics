@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 cd $(dirname "$0")
 echo "Loading Clickstream-Demo TABLES to Kafka Connect => Elastic => Grafana datasource"
 
@@ -15,7 +15,7 @@ if [[ -z "${ELASTIC_HOST}" ]]; then
   ELASTIC_HOST="localhost"
 fi
 
-declare -a tables=('click_user_sessions' 'user_ip_activity' 'enriched_error_codes_count' 'errors_per_min_alert' 'errors_per_min' 'events_per_min' 'pages_per_min');
+declare -a tables=('click_user_sessions' 'user_ip_activity' 'enriched_error_codes_count' 'errors_per_min_alert' 'errors_per_min' 'events_per_min' 'pages_per_min' 'bandwidth_per_min' 'user_session_bandwidth');
 for i in "${tables[@]}"
 do
     table_name=$i

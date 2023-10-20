@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 ## An "all-in-one script" to load up a new table and connect all of the relevant parts to allow data to pipe through from KSQL.KafkaTopic->Connect->Elastic->Grafana[DataSource]
 ## Accepts a KSQL TABLE_NAME where the data is to be sourced from.

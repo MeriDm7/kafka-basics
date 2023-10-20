@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 if [[ -z "${ELASTIC_HOST}" ]]; then
   echo -e "ELASTIC_HOST not set, defaulting to localhost"

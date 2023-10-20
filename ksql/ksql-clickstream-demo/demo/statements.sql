@@ -118,6 +118,26 @@ CREATE TABLE ERRORS_PER_MIN_ALERT AS
     GROUP BY status
     HAVING count(*) > 5 AND count(*) is not NULL;
 
+CREATE TABLE BANDWIDTH_PER_MIN AS 
+    SELECT
+        username as K,
+        AS_VALUE(username) as username,
+        WINDOWSTART AS EVENT_TS, 
+        SUM(bytes) AS total_bytes
+    FROM USER_CLICKSTREAM 
+    WINDOW TUMBLING (size 60 second)
+    GROUP BY username; 
+
+CREATE TABLE USER_SESSION_BANDWIDTH AS
+    SELECT 
+        username as K,
+        AS_VALUE(username) as username,
+        WINDOWSTART as EVENT_TS,
+        SUM(bytes) AS total_bytes
+    FROM USER_CLICKSTREAM
+    WINDOW SESSION (30 second)
+    GROUP BY username;
+
 -- number of errors per min
 CREATE TABLE ERRORS_PER_MIN AS
     SELECT

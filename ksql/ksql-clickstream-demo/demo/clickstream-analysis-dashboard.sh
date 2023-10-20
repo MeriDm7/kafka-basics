@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #curl -X "GET" "http://localhost:3000/api/dashboards/db/click-stream-analysis" \
 #        -H "Content-Type: application/json" \
 #	     --user user:user
